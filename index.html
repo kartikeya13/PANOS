@@ -212,7 +212,17 @@ payload for various terrain types when compared to state-ofthe-art methods.
       <div class="column"><h2 class="title is-3">Method</h2>
         <div class="content has-text-justified">
           <p>
-            The training of PIXER is a three-step process. First, we train a network with a general understanding of interestingness (i.e., feature point detection) where we make use of SiLK in this work (top left). Next, we convert this model to a Bayesian Neural Network (BNN) and train again using the addition of probabilistic losses (e.g., KL Divergence, top middle). Finally, we train a specialized uncertainty head using feature variance computed by Monte Carlo supervision from the BNN (top right). The PIXER inference model is then the joint feature-point probability and uncertainty networks (bottom middle). The combination of pixel-wise probability and uncertainty forms our definition of featureness F (bottom right), used to describe the general utility of the visual information.
+             PANOS inputs a stream of images and proprioception data Pt (joints, hips and, feet slips) recorded in
+an unsupervised fashion. The framework encodes these readings into two backbones DINOv2 [25] and a vanilla encoder for proprioception
+resulting in sets of random sequences St with visual tokens F
+visual
+t
+and proprioceptive features F
+proprio
+t
+stacked together. As an intermediate
+step, a pointer network is defined to assign the weighted confidence Confidence between these sets and select the dominating ones to
+train. Finally, we use the trained contextual relationship ct as the input to a neural network that predicts the optimal velocity.
           </p>
           <img style="width:100%;" src="static/images/pixer-network7.pdf">
         </div>
