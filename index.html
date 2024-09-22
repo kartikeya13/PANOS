@@ -230,13 +230,16 @@ train. Finally, we use the trained contextual relationship ct as the input to a 
       <div class="column"><h2 class="title is-3">Results</h2>
         <div class="content has-text-justified">
           <h6>
-            Visual odometry (VO) performance results. Features when filtered using PIXER contribute to a lower RMSE (31% on average
-            across all datasets) and frame-to-frame execution time for VO estimation (0.63% despite the inclusion of model inference). This enables
-            using lighter, faster features like Shi-Tomasi while achieving performance better than SIFT (e.g., KITTI & Davis). We see a considerable
-            reduction in the number of keypoints in all datasets by roughly 49% (KP% shows % reduction while KPmean shows the mean number mean
-            of keypoints extracted per image). mean(FArea) is the average percentage of pixels masked with F.
+            : From Table I, we can observe the performance
+of PANOS in reducing the mean jerk J¯ for both with and
+without payload runs. The overall reduction of instability
+obtained from PANOS is up to 53% w payload and 44%
+w/o payload. By learning from both exteroception as well
+as proprioception, PANOS is able to generate velocities that
+reduce instability and allow for stable locomotion. Note that
+changing payloads does not need any retraining.
           </h6>
-          <img style="width:100%;" src="static/images/pixer-results.png">
+          <img style="width:100%;" src="static/images/panos_result.png">
           
           <!-- <h6>
             and maintains this alignment across different environment features:
